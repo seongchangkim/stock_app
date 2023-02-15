@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io' show Platform;
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -30,29 +31,30 @@ class _SplashPageState extends State<SplashPage> {
     xAuthToken = await storage.read(key: 'x_auth') ?? '';
     userId = await storage.read(key: 'id') ?? '';
 
-     print("userId : ${userId}");
-    print("isEmpty : ${userId.isEmpty}");
-    if (userId.isEmpty) {
-      _userController.loginCheck(false);
-      Navigator.pushNamedAndRemoveUntil(context, '/loginPage', (_) => false);
-      return;
-    }
+    Future.delayed(Duration(seconds: Platform.isIOS ? 1 : 0), () async{
+      // print("userId : ${userId}");
+      // print("isEmpty : ${userId.isEmpty}");
+      if (userId.isEmpty) {
+        _userController.loginCheck(false);
+        Navigator.pushNamedAndRemoveUntil(context, '/loginPage', (_) => false);
+        return;
+      }
 
-    var res = await getProfileInfo();
+      var res = await getProfileInfo();
 
-    var result = json.decode(res);
+      var result = json.decode(res);
 
-    if (result['success']) {
-      _userController.setUserInfo(result["user"]);
-      _userController.loginCheck(true);
-      _menuController.setAppMenuPage(0);
-      Navigator.pushNamedAndRemoveUntil(context, '/appMenu', (_) => false);
-    }else{
-      _userController.loginCheck(false);
-      Navigator.pushNamedAndRemoveUntil(context, '/loginPage', (_) => false);
-    }
-
-    // return _controller.isAuth;
+      if (result['success']) {
+        _userController.setUserInfo(result["user"]);
+        _userController.loginCheck(true);
+        _menuController.setAppMenuPage(0);
+        Navigator.pushNamedAndRemoveUntil(context, '/appMenu', (_) => false);
+      } else {
+        _userController.loginCheck(false);
+        Navigator.pushNamedAndRemoveUntil(context, '/loginPage', (_) => false);
+      }
+    });
+   
   }
 
   @override

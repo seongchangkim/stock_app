@@ -41,71 +41,79 @@ class _MorePageState extends State<MorePage> with AutomaticKeepAliveClientMixin{
                             border: Border(
                                 bottom: BorderSide(
                                     color: Colors.black, width: 1.0))),
-                        child: Column(children: [
-                          Container(
-                            width: _width,
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 20.0),
-                            child: const Padding(
-                                padding: EdgeInsets.symmetric(vertical: 20),
-                                child: Text("계정 관리",
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold))),
-                          ),
-                          GestureDetector(
-                            onTap: () => Navigator.pushNamed(
-                                context, '/myProfilePage',
-                                arguments: {'user': _userController.user}),
-                            child: Container(
+                        child: Column(
+                          children: [
+                            Container(
+                              width: _width,
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20.0),
+                              child: const Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 20),
+                                  child: Text("계정 관리",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold))),
+                            ),
+                            GestureDetector(
+                              onTap: () => Navigator.pushNamed(
+                                  context, '/myProfilePage',
+                                  arguments: {'user': _userController.user}),
+                              child: Container(
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 20.0),
-                                child: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 20),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: const [
-                                      Text("프로필",
-                                          style: TextStyle(fontSize: 12)),
-                                      Icon(Icons.arrow_forward_ios, size: 12)
-                                    ],
-                                  ),
-                                )),
-                          ),
-                          GestureDetector(
-                              onTap: () async {
-                                var params = {
-                                  "userId": userId,
-                                };
-
-                                await logout(params).then(((value) async {
-                                  _userController.setUserInfo({});
-                                  _userController.loginCheck(false);
-                                  _menuController.setAppMenuPage(0);
-                                  Navigator.pushNamedAndRemoveUntil(
-                                      context, '/loginPage', (route) => false);
-                                }));
-                              },
-                              child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 20.0),
                                   child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 20),
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 20),
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: const [
-                                        Text("로그아웃",
-                                            style: TextStyle(fontSize: 12)),
-                                        Icon(Icons.arrow_forward_ios, size: 12)
+                                        Padding(
+                                          padding: EdgeInsets.fromLTRB(0, 10, 50, 10),
+                                          child: Text("프로필",
+                                            style: TextStyle(fontSize: 12)), 
+                                        ),
+                                        
+                                        Padding(
+                                          padding: EdgeInsets.fromLTRB(50, 10, 0, 10),
+                                          child: Icon(Icons.arrow_forward_ios, size: 12)
+                                        )
                                       ],
                                     ),
-                                  )))
-                        ]),
-                      )
+                                  )),
+                            ),
+                            GestureDetector(
+                                onTap: () async {
+                                  var params = {
+                                    "userId": userId,
+                                  };
+
+                                  await logout(params).then(((value) async {
+                                    _userController.setUserInfo({});
+                                    _userController.loginCheck(false);
+                                    _menuController.setAppMenuPage(0);
+                                    Navigator.pushNamedAndRemoveUntil(
+                                        context, '/loginPage', (route) => false);
+                                  }));
+                                },
+                                child: Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20.0),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 20),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: const [
+                                          Text("로그아웃",
+                                              style: TextStyle(fontSize: 12)),
+                                          Icon(Icons.arrow_forward_ios, size: 12)
+                                        ],
+                                      ),
+                                    )))
+                          ]),
+                        )
                     ],
                   ))),
         ));

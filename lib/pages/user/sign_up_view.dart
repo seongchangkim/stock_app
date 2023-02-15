@@ -127,7 +127,7 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   void navigateLoginView() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: ((context) => const LoginView())));
+    Navigator.pushNamedAndRemoveUntil(
+        context, '/loginPage', (_) => false);
   }
 }
