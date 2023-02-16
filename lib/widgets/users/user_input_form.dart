@@ -36,11 +36,6 @@ class _UserInputFormState extends State<UserInputForm> {
         obscureText: widget.inputType == "password" ? true : false,
         controller: widget.controller,
         textInputAction: widget.isMoveNextCursor ? TextInputAction.next : TextInputAction.done,
-        onChanged: Platform.isIOS
-            ? (text) {
-                print("text : ${widget.controller.text}");
-              }
-            : null,
         decoration: InputDecoration(labelText: widget.labelText),
         validator: (text) {
           if (widget.inputType == "email") {

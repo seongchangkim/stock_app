@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:stock_app/api/user_api.dart';
 import 'package:stock_app/dialog/confirm_dialog.dart';
 import 'package:stock_app/dialog/error_dialog.dart';
-import 'package:stock_app/pages/user/login_view.dart';
 import 'package:stock_app/widgets/users/user_input_form.dart';
 import 'package:stock_app/widgets/users/user_input_btn.dart';
 
@@ -48,9 +47,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: _height * 0.8,
                   child: Stack(
                     children: [
-                      // IconButton(
-                      //     onPressed: () => Navigator.pop(context),
-                      //     icon: const Icon(Icons.arrow_back_ios)),
+                      
                       Container(
                           margin: EdgeInsets.fromLTRB(_width * 0.1, _width * 0.1, _width * 0.1, 0),
                           child: Column(
@@ -105,13 +102,15 @@ class _SignUpPageState extends State<SignUpPage> {
                                                     title: "회원가입",
                                                     content: "회원가입 완료되었습니다.",
                                                     func: navigateLoginView);
-                                              });
+                                              }
+                                            );
                                         } else {
                                           showDialog(
                                               context: context,
                                               builder: (BuildContext context) {
                                                 return const ErrorDialog(content: "관리자에게 문의하세요!");
-                                              });
+                                              }
+                                          );
                                         }
                                       }
                                     },
