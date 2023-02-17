@@ -80,11 +80,11 @@ class _HomeState extends State<Home> with AutomaticKeepAliveClientMixin{
             color: const Color.fromRGBO(233, 233, 233, 1)),
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            bool result =
+            bool? result =
                 await Navigator.pushNamed(context, '/stockPortfolioCreatePage')
-                    as bool;
+                    as bool?;
 
-            if (result) {
+            if (result != null && result) {
               showDialog(
                   context: context,
                   builder: ((context) {

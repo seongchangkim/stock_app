@@ -47,7 +47,6 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: _height * 0.8,
                   child: Stack(
                     children: [
-                      
                       Container(
                           margin: EdgeInsets.fromLTRB(_width * 0.1, _width * 0.1, _width * 0.1, 0),
                           child: Column(

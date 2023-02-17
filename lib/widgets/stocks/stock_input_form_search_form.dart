@@ -34,9 +34,8 @@ class _StockInputSearchFormState extends State<StockInputSearchForm> {
 
     return Padding(
       padding: const EdgeInsets.only(top: 10),
-      child: Stack(
-        clipBehavior: Clip.none,
-        // crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextFormField(
             readOnly: widget.readOnly,
@@ -56,7 +55,7 @@ class _StockInputSearchFormState extends State<StockInputSearchForm> {
             onChanged: ((keyWord) async {
               selectStock = [];
 
-              print(keyWord);
+              // print(keyWord);
 
               if (searchList.isNotEmpty) {
                 searchList.clear();
@@ -75,10 +74,9 @@ class _StockInputSearchFormState extends State<StockInputSearchForm> {
           if (searchList.isNotEmpty &&
             widget.inputType == "stock" &&
             selectStock.isEmpty)
-            Positioned(
-              child: Container(
+            Container(
                 height: 80,
-                margin: const EdgeInsets.only(top: 40),
+                // margin: const EdgeInsets.only(top: 40),
                 decoration: BoxDecoration(
                     border: Border.all(
                         color: const Color.fromRGBO(148, 163, 184, 1)),
@@ -109,7 +107,7 @@ class _StockInputSearchFormState extends State<StockInputSearchForm> {
                         );
                       },
                 ),
-            ))
+            )
         ])
       );
   }

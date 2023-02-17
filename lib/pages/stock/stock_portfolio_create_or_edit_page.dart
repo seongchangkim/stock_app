@@ -145,78 +145,66 @@ class _StockPortfolioCreateOrEditPageState
                         Container(
                           height: _height * 0.3,
                           margin: const EdgeInsets.symmetric(vertical: 10.0),
-                          child: Stack(clipBehavior: Clip.none, children: [
-                            ListView.builder(
-                              itemCount: _count,
-                              itemBuilder: (context, index) {
-                                return Positioned(
-                                    child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                      Positioned(
-                                        child: Container(
-                                          margin: const EdgeInsets.only(top: 5),
-                                          child: Text(
-                                            "자산${index + 1}",
-                                            style: const TextStyle(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        ),
+                          child: ListView.builder(
+                            itemCount: _count,
+                            itemBuilder: (context, index) {
+                              return Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      margin: const EdgeInsets.only(top: 5),
+                                      child: Text(
+                                        "자산${index + 1}",
+                                        style: const TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600),
                                       ),
-                                      Positioned(
-                                          child: Container(
-                                              // margin: const EdgeInsets.only(
-                                              //     top: 15),
-                                              child: Row(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                            Expanded(
-                                                flex: 5,
-                                                child: Container(
-                                                    margin:
-                                                        const EdgeInsets.only(
-                                                            right: 10),
-                                                    child: StockInputSearchForm(
-                                                        controller:
-                                                            _stockControllerList[
-                                                                index],
-                                                        inputType: "stock"))),
-                                            Expanded(
-                                              flex: 4,
+                                    ),
+                                    Container(
+                                      child: Row(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                              flex: 5,
                                               child: Container(
-                                                  child: StockInputForm(
+                                                  margin: const EdgeInsets.only(
+                                                      right: 10),
+                                                  child: StockInputSearchForm(
                                                       controller:
-                                                          _ratioControllerList[
+                                                          _stockControllerList[
                                                               index],
-                                                      inputType: "percent")),
-                                            ),
-                                            Expanded(
-                                                flex: 1,
-                                                child: Container(
-                                                    height: 60,
-                                                    child: GestureDetector(
-                                                      onTap: () {
-                                                        setState(() {
-                                                          _stockControllerList
-                                                              .removeAt(index);
-                                                          _ratioControllerList
-                                                              .removeAt(index);
-                                                          --_count;
-                                                        });
-                                                      },
-                                                      child: const Icon(
-                                                          FontAwesomeIcons
-                                                              .xmark,
-                                                          size: 16),
-                                                    )))
-                                          ]))),
-                                    ]));
-                              },
-                            ),
-                          ]),
+                                                      inputType: "stock"))),
+                                        Expanded(
+                                          flex: 4,
+                                          child: Container(
+                                              child: StockInputForm(
+                                                  controller:
+                                                      _ratioControllerList[
+                                                          index],
+                                                  inputType: "percent")),
+                                        ),
+                                        Expanded(
+                                            flex: 1,
+                                            child: Container(
+                                                height: 60,
+                                                child: GestureDetector(
+                                                  onTap: () {
+                                                    setState(() {
+                                                      _stockControllerList
+                                                          .removeAt(index);
+                                                      _ratioControllerList
+                                                          .removeAt(index);
+                                                      --_count;
+                                                    });
+                                                  },
+                                                  child: const Icon(
+                                                      FontAwesomeIcons.xmark,
+                                                      size: 16),
+                                                )))
+                                      ])),
+                                ]);
+                            },
+                          ),
                         ),
                         GestureDetector(
                             onTap: () async {
@@ -278,20 +266,7 @@ class _StockPortfolioCreateOrEditPageState
                                 var data = json.decode(res);
 
                                 if (data['success']) {
-                                  int count = 0;
-                                  // showDialog(
-                                  //     context: context,
-                                  //     builder: ((context) {
-                                  //       return ConfirmDialog(
-                                  //         title: widget.isEditPortfolio
-                                  //             ? "자산 포트폴리오 수정"
-                                  //             : "자산 포트폴리오 생성",
-                                  //         content: widget.isEditPortfolio
-                                  //             ? "자산 포트폴리오를 수정되었습니다."
-                                  //             : "자산 포트폴리오를 생성되었습니다.",
-                                  //         func: () => Navigator.pop(context),
-                                  //       );
-                                  //     }));
+                                  int count = 1;
                                   Navigator.pop(context, true);
                                 }
                               }
