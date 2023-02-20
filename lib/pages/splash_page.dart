@@ -7,6 +7,7 @@ import 'package:stock_app/api/user_api.dart';
 import 'package:stock_app/global/user_global.dart';
 import 'package:stock_app/store/menu_store.dart';
 import 'package:stock_app/store/user_store.dart';
+import 'package:flutter/foundation.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -31,9 +32,7 @@ class _SplashPageState extends State<SplashPage> {
     xAuthToken = await storage.read(key: 'x_auth') ?? '';
     userId = await storage.read(key: 'id') ?? '';
 
-    Future.delayed(Duration(seconds: Platform.isIOS ? 1 : 0), () async{
-      // print("userId : ${userId}");
-      // print("isEmpty : ${userId.isEmpty}");
+    Future.delayed(const Duration(seconds: kReleaseMode ? 1 : 0 ), () async{
       if (userId.isEmpty) {
         _userController.loginCheck(false);
         Navigator.pushNamedAndRemoveUntil(context, '/loginPage', (_) => false);
