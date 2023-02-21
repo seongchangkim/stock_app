@@ -49,12 +49,13 @@ https://user-images.githubusercontent.com/74657556/220310852-30a94987-7a47-4959-
   </tr>
   <tr>
     <td>
-      <p align="center">    프로필 상세보기</p>
+      <p align="center">프로필 상세보기</p>
     </td>
     
   </tr>
 </table>
 https://user-images.githubusercontent.com/74657556/220317161-ee49de4f-f5a6-4675-ab85-858a0fc64e39.mp4
+<p align>프로필 수정</p>
 
 
 
