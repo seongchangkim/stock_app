@@ -42,15 +42,21 @@ https://user-images.githubusercontent.com/74657556/220310852-30a94987-7a47-4959-
 
 
 ### 5. 프로필 상세보기, 프로필 정보 수정 및 회원 탈퇴
-<div style="display:flex">
-  <div style="width: 200px">
-    <img src="https://user-images.githubusercontent.com/74657556/220316730-e103610f-068c-4b1d-8a40-3d9f01c9614c.jpeg" width="250" height="500">
-    <p style="text-align:center">    프로필 상세보기</p>
-  </div>
-</div>
-
-
+<table>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/74657556/220316730-e103610f-068c-4b1d-8a40-3d9f01c9614c.jpeg" width="250" height="500"></td>
+    
+  </tr>
+  <tr>
+    <td>
+      <p align="center">    프로필 상세보기</p>
+    </td>
+    
+  </tr>
+</table>
 https://user-images.githubusercontent.com/74657556/220317161-ee49de4f-f5a6-4675-ab85-858a0fc64e39.mp4
+
+
 
 <br/>
 - 더보기 페이지에 들어가서 로그아웃 부분에 클릭하면 로그아웃 API를 POST방식으로 호출하여 사용자 id를 들고 request해서 작동함. 그 다음에 해당 회원에 대한 앱 쿠키가 지워지고 DB안에 해당 회원 id를 찾아서 token를 빈 값으로 수정함. 마지막으로 user 저장소를 빈 객체로 초기화시키고 로그인 페이지로 이동함.
