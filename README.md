@@ -42,32 +42,50 @@ https://user-images.githubusercontent.com/74657556/220310852-30a94987-7a47-4959-
 
 
 ### 5. 프로필 상세보기, 프로필 정보 수정 및 회원 탈퇴
-<table>
-  <tr>
-    <td><img src="https://user-images.githubusercontent.com/74657556/220316730-e103610f-068c-4b1d-8a40-3d9f01c9614c.jpeg" width="250" height="500"></td>
-  </tr>
-  <tr>
-    <td>
-      <p align="center">프로필 상세보기</p>
-    </td>
-  </tr>
-</table>
+<img src="https://user-images.githubusercontent.com/74657556/220316730-e103610f-068c-4b1d-8a40-3d9f01c9614c.jpeg" width="250" height="500">
+<p align="center">프로필 상세보기</p>
+
 
 https://user-images.githubusercontent.com/74657556/220317161-ee49de4f-f5a6-4675-ab85-858a0fc64e39.mp4
 <p align="center">프로필 정보 수정</p>
 
-<table>
-  <tr>
-    <td><img src="[https://user-images.githubusercontent.com/74657556/220316730-e103610f-068c-4b1d-8a40-3d9f01c9614c.jpeg](https://user-images.githubusercontent.com/74657556/220350951-b6ea53ec-9429-42b7-a5b5-33f46befc233.gif)" width="250" height="500"></td>
-  </tr>
-  <tr>
-    <td>
-      <p align="center">프로필 상세보기</p>
-    </td>
-  </tr>
-</table>
-<p align="center">프로필 정보 삭제</p>![user_leave]()
+<img src="https://user-images.githubusercontent.com/74657556/220350951-b6ea53ec-9429-42b7-a5b5-33f46befc233.gif" width="250" height="500">
+<p align="center">프로필 상세보기</p>
 
 
 <br/>
-- 더보기 페이지에 들어가서 로그아웃 부분에 클릭하면 로그아웃 API를 POST방식으로 호출하여 사용자 id를 들고 request해서 작동함. 그 다음에 해당 회원에 대한 앱 쿠키가 지워지고 DB안에 해당 회원 id를 찾아서 token를 빈 값으로 수정함. 마지막으로 user 저장소를 빈 객체로 초기화시키고 로그인 페이지로 이동함.
+1). 프로필 상세보기 : 더보기 페이지에 들어가서 프로필 정보를 클릭하면 상태관리으로 저장된 사용자 정보를 들고 프로필 상세보기 페이지에 출력함. 
+2). 프로필 정보 수정 : 프로필 상세보기 페이지에서 수정하고자 이름과 전화번호를 수정하여 프로필 수정 버튼을 클릭하면 프로필 수정 API를 호출하여 수정하고자 이름과 전화번호를 들고 request해서 작동함. 그리고 DB에서 해당 사용자를 조회해서 해당 사용자와 일치하는 데이터에 이름과 전화번호를 수정하고 updatedAt 컬럼을 해당 API를 호출했던 시점으로 수정됨. 그 다음에 프로필 정보 수정이 성공하면 프로필 정보 수정 알림창이 뜸. 그리고 프로필 정보 수정 알림창에 확인 버튼을 누르면 그 부분이 취소가 됨.(유효성 검사 기능도 있음.)
+3). 회원 탈퇴 : 프로필 상세보기 페이지에서 회원 탈퇴를 누르면 회원 탈퇴 API를 호출하여 해당 사용자 id를 들고 request해서 작동함. 그리고 DB에서 해당 사용자 id로 조회하여 해당 사용자와 일치하면 deletedAt를 해당 API를 호출했던 시점으로 저장되고 회원 탈퇴 처리가 성공하면 회원 탈퇴 알림창을 뜸. 회원 탈퇴 알림창에서 확인 버튼을 클릭하면 로그인 페이지로 이동됨.
+
+### 6. 홈 화면(생성한 자산 포트폴리오 목록 조회)
+<img src="https://user-images.githubusercontent.com/74657556/220388064-be1cb275-2b9d-482d-8061-c7caa18329a4.jpeg" width="250" height="500">
+<p align="center">기존에 생성했던 자산 포트폴리오 목록이 있을 때</p>
+<img src="https://user-images.githubusercontent.com/74657556/220388116-ce588afc-247e-4642-845a-5458798be6a9.jpeg" width="250" height="500">
+<p align="center">기존에 생성했던 자산 포트폴리오 목록이 없을 때</p>
+
+<br/>
+스플래시를 통해 홈 화면으로 이동하기 전에 자산 포트폴리오 목록 API를 호출하여 해당 회원 id을 들고 request해서 작동함. 그리고 DB에서 해당 회원 id에 자산 포트폴리오에 대한 데이터들을 조회해서 response로 자산 포트폴리오 클라이언트에 뿌려서 자산 포트폴리오 목록을 출력함.
+
+### 7. 자산 포트폴리오 생성
+
+https://user-images.githubusercontent.com/74657556/220392727-432628d5-2d44-453a-89b0-0582f47f5806.mp4
+
+홈 화면에서 + 버튼을 누르면 자산 포트폴리오 생성 페이지를 들어갈 수 있는데 그 페이지에 + 버튼을 누르면 생성하고자 포트폴리오에 추가할 자산 및 비율을 추가로 입력할 수 있음. 생성 버튼을 클릭하고 자산 포트폴리오 생성 API를 호출하여 입력한 값을 request로 보냈는데 DB에 해당 포트폴리오를 생성되고 해당 자산 포트폴리오 생성이 성공하면 이전 페이지로 이동하면서 새로고침하면 포트폴리오 생성 알림창을 띄움 .(유효성 검사 기능도 있음.)
+
+### 8. 자산 포트폴리오 상세보기 및 삭제
+<img src="https://user-images.githubusercontent.com/74657556/220394078-674523ed-e7c9-40f3-af77-a5114bb52d8c.jpeg" width="250" height="500">
+<p align="center">자산 포트폴리오 상세보기</p>
+
+![asset_portfolio_delete](https://user-images.githubusercontent.com/74657556/220394372-7dc8eaf9-a15e-497c-8010-96493883db3d.gif)
+<p align="center">자산 포트폴리오 삭제</p>
+
+1). 자산 포트폴리오 상세보기 : 홈 화면에서 해당 자산 포트폴리오를 클릭하면 해당 자산 포트폴리오 상세보기 페이지에 들어가게 전에 자산 포트폴리오 상세보기 API를 호출하여 해당 포트폴리오 Index값을 들고 request해서 작동함. 그리고 DB에 해당 portIndex를 활용하여 해당 포트폴리오 정보를 조회하여 Response Data를 보내어 그 페이지에 출력하게 됨.
+2). 자산 포트폴리오 삭제 : 해당 자산 포트폴리오에 삭제 버튼을 클릭하면 해당 자산 포트폴리오 삭제 API를 호출하여 해당 포트폴리오 Index값을 들고 request해서 작동함. 그리고 DB에 해당 portIndex를 활용하여 그것에 대해 조회하고 해당 portIndex에 조회된 자산 포트폴리오 데이터에 deletedAt를 해당 API를 호출했던 시점으로 저장되고 자산 포트폴리오 삭제 처리가 성공하면 이전 페이지를 이동하면서 새로고침을 하면서 포트폴리오 삭제 알림창이 됨.
+
+### 9. 자산 포트폴리오 수정
+
+https://user-images.githubusercontent.com/74657556/220395912-8aefca90-d3b9-441f-b77c-7f41f0f67117.mp4
+
+해당 자산 포트폴리오 상세보기 페이지에서 수정 버튼을 누르면 해당 자산 포트폴리오 수정 페이지가 출력되고 자산 포트폴리오 생성 페이지와 마찬가지로 그 페이지에 + 버튼을 누르면 수정하고자 포트폴리오에 추가할 자산 및 비율을 추가로 입력할 수 있음. 수정하고자 포트폴리오 정보를 입력하여 수정 버튼을 누르면 해당 포트폴리오 수정 API을 호출하여 수정하고자 포트폴리오 정보를 들고 request해서 작동함. 그리고 DB에서 해당 portIndex를 활용하여 그것에 대해서 조회하여 해당 portIndex에 조회된 자산 포트폴리오 데이터에 수정하고자 포트폴리오 정보로 수정되고 updatedAt가 해당 API를 호출했던 시점으로 수정됨. 그리고 포트폴리오 정보 수정이 성공하면 이전 페이지로 이동하면서 새로고침하면소 프로필 정보 수정 알림창이 뜸.
+
