@@ -44,7 +44,7 @@ class _SignUpPageState extends State<SignUpPage> {
               key: _registerFormKey,
               child: Container(
                   width: _width,
-                  height: _height * 0.8,
+                  height: _height * 0.9,
                   child: Stack(
                     children: [
                       Container(

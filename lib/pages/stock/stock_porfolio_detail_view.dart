@@ -232,17 +232,9 @@ class _StockPorfolioDetailViewState extends State<StockPorfolioDetailView> {
                                   ),
                                 ),
                               ),
-
-                              // const SizedBox(
-                              //   height: 18,
-                              // ),
                             ],
                           )),
                       Container(
-                          // margin: EdgeInsets.only(
-                          //     top: _height * 0.24 -
-                          //         10 * (portStockCount - 1),
-                          //     left: 20),
                           height: _height * 0.06 * portStockCount,
                           child: ListView.builder(
                             itemCount: portStockCount,
@@ -311,6 +303,7 @@ class _StockPorfolioDetailViewState extends State<StockPorfolioDetailView> {
                                   setState(() {
                                     info.clear();
                                     ratio.clear();
+                                    stockSymbolList.clear();
                                     portStockCount = 0;
 
                                     myFuture = _getStockPortfolio();
