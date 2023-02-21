@@ -45,18 +45,28 @@ https://user-images.githubusercontent.com/74657556/220310852-30a94987-7a47-4959-
 <table>
   <tr>
     <td><img src="https://user-images.githubusercontent.com/74657556/220316730-e103610f-068c-4b1d-8a40-3d9f01c9614c.jpeg" width="250" height="500"></td>
-    
   </tr>
   <tr>
     <td>
       <p align="center">프로필 상세보기</p>
     </td>
-    
   </tr>
 </table>
-https://user-images.githubusercontent.com/74657556/220317161-ee49de4f-f5a6-4675-ab85-858a0fc64e39.mp4
-<p align>프로필 수정</p>
 
+https://user-images.githubusercontent.com/74657556/220317161-ee49de4f-f5a6-4675-ab85-858a0fc64e39.mp4
+<p align="center">프로필 정보 수정</p>
+
+<table>
+  <tr>
+    <td><img src="[https://user-images.githubusercontent.com/74657556/220316730-e103610f-068c-4b1d-8a40-3d9f01c9614c.jpeg](https://user-images.githubusercontent.com/74657556/220350951-b6ea53ec-9429-42b7-a5b5-33f46befc233.gif)" width="250" height="500"></td>
+  </tr>
+  <tr>
+    <td>
+      <p align="center">프로필 상세보기</p>
+    </td>
+  </tr>
+</table>
+<p align="center">프로필 정보 삭제</p>![user_leave]()
 
 
 <br/>
