@@ -3,8 +3,8 @@
 
 회원 기능(로그인, 로그아웃, 회원가입)이 있고 회원으로 로그인하여 자산 포트폴리오를 생성할 수 뿐만 아니라 포트폴리오 목록을 조회할 수 있고 수정 및 삭제가능한 앱 애플리케이션입니다. 
 <br/>
-● Android : [app-release.apk.zip](https://github.com/seongchangkim/stock_app/files/10792092/app-release.apk.zip)<br/>
-● IOS : [Runner.zip](https://github.com/seongchangkim/stock_app/files/10792079/Runner.zip)<br/>
+● Android :[app-release.apk.zip](https://github.com/seongchangkim/stock_app/files/10940494/app-release.apk.zip)<br/>
+● IOS : [Runner.zip](https://github.com/seongchangkim/stock_app/files/10940490/Runner.zip)<br/>
 ● 제작기간 : 2023.1.5~2023.02.17(1인 프로젝트)
 
 ### 개발 환경
