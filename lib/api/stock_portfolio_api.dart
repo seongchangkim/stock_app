@@ -10,7 +10,7 @@ const baseUrl = Env.baseUrl;
 
 // 회원 주식 포트폴리오 목록 불러오기
 Future<List<dynamic>> getPortfolioList(int page) async {
-  print("get stock portfolio list");
+  // print("get stock portfolio list");
 
   Uri uri =
       Uri.parse("${baseUrl}api/stock/portfolio/list?id=$userId&page=$page");

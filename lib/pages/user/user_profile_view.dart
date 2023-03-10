@@ -70,16 +70,15 @@ class _MyProfileViewState extends State<MyProfileView> {
     return Scaffold(
       appBar: TextCenterAppBar(title: "프로필 수정", appBar: AppBar()),
       body: SafeArea(
-          child: Container(
-        width: _width,
-        height: _height,
-        child: SingleChildScrollView(
+        child: Container(
+          width: _width,
+          height: _height,
+          child: SingleChildScrollView(
             child: Form(
                 key: _profileFormKey,
                 child: Container(
                   margin: const EdgeInsets.fromLTRB(30, 30, 30, 0),
                   child: Column(
-                    // mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       GestureDetector(
@@ -87,15 +86,12 @@ class _MyProfileViewState extends State<MyProfileView> {
                             XFile? file = await _picker.pickImage(
                                 source: ImageSource.gallery, imageQuality: 100);
 
-                            print('path : ${file.toString()}');
                             if (file == null) {
                               return;
                             }
                             setState(() {
                               _previewFile = File(file.path);
                             });
-
-                            print('preview: ${_previewFile.toString()}');
                           },
                           child: Container(
                             margin: const EdgeInsets.only(bottom: 30),
@@ -163,7 +159,6 @@ class _MyProfileViewState extends State<MyProfileView> {
                                             color: Color.fromRGBO(
                                                 156, 163, 175, 1)))),
                                 controller: _nameController,
-                                // decoration: InputDecoration(labelText: "이름"),
                                 validator: (text) {
                                   return (text!.trim().isEmpty)
                                       ? '이름을 입력하세요.'
@@ -224,7 +219,6 @@ class _MyProfileViewState extends State<MyProfileView> {
                             Expanded(
                                 child: GestureDetector(
                                     onTap: () async {
-                                      print("previewFile : ${_previewFile}");
 
                                       String? path = _previewFile != null
                                           ? _previewFile!.path
@@ -234,7 +228,6 @@ class _MyProfileViewState extends State<MyProfileView> {
                                         final mountainsRef = storageRef.child(
                                             "profiles/${widget.user["id"]}${_previewFile!.path.toString().substring(_previewFile!.path.toString().lastIndexOf('/'))}");
 
-                                        print("upload path : $path");
                                         print("ref : ${mountainsRef}");
 
                                         // firebase storage에 이미지 업로드
@@ -257,8 +250,8 @@ class _MyProfileViewState extends State<MyProfileView> {
 
                                       if (_profileFormKey.currentState!
                                           .validate()) {
-                                        print(
-                                            "req params : ${params.toString()}");
+                                        // print(
+                                        //     "req params : ${params.toString()}");
 
                                         var res =
                                             await updateProfileInfo(params);

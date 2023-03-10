@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:stock_app/api/twelve_data_api.dart';
 
@@ -28,7 +26,6 @@ class _StockInputFormState extends State<StockInputForm> {
 
   @override
   Widget build(BuildContext context) {
-    // print("searchList : ${searchList.toList()}");
 
     return Column(
         mainAxisSize: MainAxisSize.max,
@@ -55,15 +52,12 @@ class _StockInputFormState extends State<StockInputForm> {
                       ? ((keyWord) async {
                           selectStock = [];
 
-                          print(keyWord);
-
                           if (searchList.isNotEmpty) {
                             searchList.clear();
                           }
 
                           List dataList = await searchAmericaStockList(keyWord);
 
-                          log("data : ${dataList.toList()}");
                           setState(() {
                             dataList.forEach(
                                 (stock) => searchList.add([stock['symbol'], stock['instrument_name']]));

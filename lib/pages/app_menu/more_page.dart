@@ -20,7 +20,6 @@ class _MorePageState extends State<MorePage> with AutomaticKeepAliveClientMixin{
 
   @override
   Widget build(BuildContext context) {
-    // print("user : ${_userController.user}");
     Size size = MediaQuery.of(context).size;
     double _width = size.width;
     double _height = size.height;

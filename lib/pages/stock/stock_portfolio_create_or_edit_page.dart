@@ -4,12 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:stock_app/api/stock_portfolio_api.dart';
-import 'package:stock_app/api/twelve_data_api.dart';
 import 'package:stock_app/appbar/text_center_appbar.dart';
 import 'package:stock_app/dialog/confirm_dialog.dart';
 import 'package:stock_app/store/user_store.dart';
 import 'package:stock_app/widgets/stocks/stock_input_form.dart';
-import 'package:stock_app/widgets/stocks/stock_input_form_search_form.dart';
+// import 'package:stock_app/widgets/stocks/stock_input_form_search_form.dart';
 
 class StockPortfolioCreateOrEditPage extends StatefulWidget {
   final List<Map<String, int>> symbolRatioList;
@@ -169,7 +168,7 @@ class _StockPortfolioCreateOrEditPageState
                                               child: Container(
                                                   margin: const EdgeInsets.only(
                                                       right: 10),
-                                                  child: StockInputSearchForm(
+                                                  child: StockInputForm(
                                                       controller:
                                                           _stockControllerList[
                                                               index],

@@ -12,7 +12,6 @@ import 'package:stock_app/api/user_api.dart';
 import 'package:stock_app/pages/user/user_profile_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:stock_app/firebase_options.dart';
-import 'package:stock_app/store/user_store.dart';
 import 'package:stock_app/pages/splash_page.dart';
 
 final List<String> stockList = [];
@@ -61,7 +60,6 @@ class _MyAppState extends State<MyApp> {
       onGenerateRoute: (settings) {
         print("argument : ${settings.arguments.toString()}");
         Map params = (settings.arguments ?? {}) as Map;
-        // print("params : ${params}");
         // print("params type: ${params.runtimeType}");
 
         var routes = {

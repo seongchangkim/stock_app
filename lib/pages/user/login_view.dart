@@ -79,7 +79,6 @@ class _LoginViewState extends State<LoginView> {
                               padding: const EdgeInsets.symmetric(vertical: 20),
                               child: GestureDetector(
                                   onTap: () async {
-                                    print("login!!");
                                     var params = {
                                       'email': emailController.text,
                                       'password': passwordController.text

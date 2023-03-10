@@ -24,7 +24,7 @@ Future<dynamic> signUp(dynamic params) async {
 Future<dynamic> signIn(dynamic params) async {
   Uri uri = Uri.parse("${baseUrl}api/user/login");
   var res = await http.post(uri, body: params);
-  log('body : ${res.body}');
+  
   var data = json.decode(res.body);
 
   await storage
@@ -42,8 +42,6 @@ Future<dynamic> signIn(dynamic params) async {
 
 // 로그아웃
 Future<dynamic> logout(dynamic params) async {
-  log("param : ${params.toString()}");
-
   Uri uri = Uri.parse("${baseUrl}api/user/logout");
   var res = await http.post(uri, body: params);
 
@@ -80,7 +78,6 @@ Future<dynamic> updateProfileInfo(dynamic params) async {
 // 회원 탈퇴
 Future<dynamic> leaveUser(dynamic param) async {
   Uri uri = Uri.parse("${baseUrl}api/admin/user/leave");
-  // Map<String, List<String>> params = param;
   var res = await http.delete(uri, body: param);
 
   if (json.decode(res.body)["success"]) {
