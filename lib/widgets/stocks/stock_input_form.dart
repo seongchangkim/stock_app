@@ -73,9 +73,7 @@ class _StockInputFormState extends State<StockInputForm> {
           if (searchList.isNotEmpty &&
               widget.inputType == "stock" &&
               selectStock.isEmpty)
-              Positioned(
-                top: 0,
-                child: Container(
+              Container(
                   height: 100,
                   decoration: BoxDecoration(
                     border: Border.all(color: const Color.fromRGBO(148,163,184,1)),
@@ -108,7 +106,7 @@ class _StockInputFormState extends State<StockInputForm> {
                       );
                     },
                   ),
-              ))
+              )
         ],
       );
   }
