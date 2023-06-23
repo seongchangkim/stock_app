@@ -50,7 +50,7 @@ https://user-images.githubusercontent.com/74657556/220317161-ee49de4f-f5a6-4675-
 <p align="center">프로필 정보 수정</p>
 
 <img src="https://user-images.githubusercontent.com/74657556/220350951-b6ea53ec-9429-42b7-a5b5-33f46befc233.gif" width="250" height="500">
-<p align="center">프로필 상세보기</p>
+<p align="center">회원 탈퇴</p>
 
 
 <br/>
